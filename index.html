@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="script.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+  </head>
+  <body>
+    <main class="home">
+      <h1 class="hero_title">
+        Github
+      </h1>
+
+      <div class="cta">
+        <input class="main-input" placeholder="Enter Username" type="text">
+        <button>Go</button>
+      </div>
+    </main>
+  </body>
+</html>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+  *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+  main{
+    min-width:100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items:center;
+    font-family: 'Fjalla One', sans-serif;
+  }
+
+  .hero_title{
+    font-size: 5rem;
+    opacity: .8;
+  }
+
+  .main-input{
+    min-height: 24px;
+    border: 1px solid #444d56;
+    border-radius: 5px;
+    background-color: #444d56;
+    color: white;
+    
+  }
+
+  .main-input::placeholder{
+    color: white;
+  }
+
+  button{
+    background-color: #2ea043;
+    border-color: #3fb950;
+    color: white;
+    width: 5rem;
+    min-height: 24px;
+    box-shadow: none;
+
+  }
+</style>
