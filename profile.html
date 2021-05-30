@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" media="screen and (max-width: 767px)" href="767.css" />
+
   <title>Github</title>
 </head>
 
@@ -352,8 +352,6 @@
 
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-
   *,
   *::before,
   *::after {
@@ -369,9 +367,13 @@
     height: 100%;
   }
 
+  main {
+    font-family: 'Segoe UI';
+  }
+
   header {
     background-color: #24292e;
-    width: 100%;
+    width: auto;
   }
 
   .Header-link {
@@ -444,38 +446,34 @@
   }
 
   .title {
-    font-size: 26px;
+    font-size: 20px;
     line-height: 1.25;
   }
 
   .subtitle {
     font-weight: 300;
     color: #586069;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
   }
 
-  .user_bio {
-    margin-top: 3rem;
-    padding-left: 1rem;
-    width: 24rem;
-  }
 
-  .subheading {
-    font-size: clamp(16px, 1rem, 1.3rem);
-  }
+
+
 
   .user_functions {
     border-bottom: 1px solid #d1d5da;
     margin-top: 3rem;
+    overflow: hidden;
   }
 
   .links {
     display: flex;
-    justify-content: space-around;
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 1rem;
+    width: fit-content;
     overflow: scroll;
-    padding-left: 5rem;
+    padding-left: 1rem;
 
 
 
@@ -528,6 +526,7 @@
       justify-content: space-between;
     }
 
+
     .bell {
       margin-top: .8rem;
     }
@@ -551,6 +550,11 @@
       display: none !important;
     }
 
+    .links {
+      border-bottom: 1px solid #d1d5da;
+    }
+
+
     .form {
       display: flex;
       justify-content: center;
@@ -566,6 +570,10 @@
 
     }
 
+    .user_bio {
+      width: 20rem;
+      margin-top: 2rem;
+    }
 
   }
 
