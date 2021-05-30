@@ -14,7 +14,7 @@
 
     <header>
       <nav class="main_nav">
-        <div class="menu">
+        <div class="menu hide-lg">
           <button class="Header-link btn-link " type="button" aria-label="Toggle navigation" aria-expanded="false">
         <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" fill="#fff" data-view-component="true" height="24" width="24" class="octicon octicon-three-bars">
     <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
@@ -33,6 +33,28 @@
 
 
         </div>
+
+        <div class="search hide-sm">
+            <input class="search_field form-control" placeholder="Search or jump to..." type="text">
+            <span class="slash" >/</span>
+        </div>
+
+        <nav class="navlink_list" >
+          <ul class="links_list" >
+            <li class="single_link" >
+              <a class=" decoration-none"  href="">Pulls</a>
+            </li>
+            <li class="single_link" >
+              <a class=" decoration-none"  href="">Issues</a>
+            </li>
+            <li class="single_link" >
+              <a class=" decoration-none"  href="">Marketplace</a>
+            </li>
+            <li class="single_link" >
+              <a class=" decoration-none"  href="">Explore</a>
+            </li>
+          </ul>
+        </nav>
         <div class="bell">
           <svg aria-hidden="true" fill="white" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16"
             width="16" class="octicon octicon-bell">
@@ -299,57 +321,7 @@
     text-decoration: none;
   }
 
-
-  @media (max-width: 767px) {
-    header {
-      height: 6rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      padding-top: 2rem;
-    }
-
-    .main_nav {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .bell {
-      margin-top: .8rem;
-    }
-
-    .user_details {
-      margin-top: 3rem;
-      padding-left: 1rem;
-    }
-
-    .img_name {
-      display: flex;
-      gap: 1.3rem;
-
-    }
-
-    .img_name img {
-      width: 20%;
-    }
-
-    .hide-sm {
-      display: none;
-    }
-
-    .form {
-      display: flex;
-      justify-content: center;
-      padding-top: .5rem;
-      padding-bottom: .5rem;
-
-    }
-
-
-
-
-  }
-
-  .title {
+    .title {
     font-size: 26px;
     line-height: 1.25;
   }
@@ -418,4 +390,93 @@
     outline-offset: -1px;
     color: #24292e;
   }
+
+
+  @media (max-width: 767px) {
+    header {
+      height: 6rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 2rem;
+    }
+
+    .main_nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bell {
+      margin-top: .8rem;
+    }
+
+    .user_details {
+      margin-top: 3rem;
+      padding-left: 1rem;
+    }
+
+    .img_name {
+      display: flex;
+      gap: 1.3rem;
+
+    }
+
+    .img_name img {
+      width: 20%;
+    }
+
+    .hide-sm {
+      display: none;
+    }
+
+    .form {
+      display: flex;
+      justify-content: center;
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+
+    }
+
+  }
+
+
+@media (min-width: 768px) {
+
+.hide-lg{
+  display: none;
+}
+
+.search{
+  position: relative;
+  width: fit-content;
+}
+
+.search_field{
+  display: table-cell;
+  background: none;
+  border: 1px solid rgba(209, 213, 218, 0.5);
+  box-shadow: none;
+}
+
+.slash{
+  border: 1px solid rgba(209, 213, 218, 0.5);
+  padding: .1rem .6rem;
+  border-radius: 4px;
+  color: rgba(209, 213, 218, 0.5);
+  position: absolute;
+  right: .4rem;
+  top: .4rem;
+}
+
+.form-control{
+  height: 2.4rem;  
+}
+
+.single_link a {
+  font-size: 1.2rem;
+  color: white;
+}
+
+
+}
+
 </style>
