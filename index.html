@@ -112,6 +112,11 @@
 
   
 <script>
+
+  window.onload = ()=>{
+    getLoginUrl();
+    return;
+  }
   let go = document.querySelector('.go');
   let input = document.getElementById('username'); 
   
@@ -119,9 +124,16 @@
   go.addEventListener('click', function(e){
     e.preventDefault();
     console.log("clicked")
+    // getLoginUrl();
      getUser();
   } )
 
+
+ const getLoginUrl = ()=>{
+
+window.location = `https://github.com/login/oauth/authorize?client_id=Iv1.2d5629f3d3a0cecd&scope=user`
+  
+}
   const getUser = ()=>{
      let query = {
     'query ($name: String!, $repo_count: Int!)' : `
