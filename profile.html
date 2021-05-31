@@ -145,7 +145,7 @@
             <span>Overview</span>
 
           </a>
-          <a href="/repositories">
+          <a href="/repositories.html">
             <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16" width="16"
               class="octicon octicon-repo UnderlineNav-octicon hide-sm">
               <path fill-rule="evenodd"
@@ -221,7 +221,7 @@
               <span>Overview</span>
 
             </a>
-            <a href="/repositories">
+            <a href="/repositories.html">
               <svg aria-hidden="true" viewBox="0 0 16 16" version="1.1" data-view-component="true" height="16"
                 width="16" class="octicon octicon-repo UnderlineNav-octicon hide-sm">
                 <path fill-rule="evenodd"
@@ -311,8 +311,8 @@
 
 
 
- <script type="text/javascript">
-  window.onload = ()=>{
+  <script type="text/javascript">
+    window.onload = ()=>{
     let data = JSON.parse(localStorage.getItem('data')); 
     console.log(data);
 
@@ -371,21 +371,21 @@ const htmlAttribute = (element, attribute, data)=>{
  
   for (const link of links) {
  link.addEventListener('click', function(event) {
-   event.preventDefault();
+   
 
 
 // In the final build use the below code
 // ${link.href};
  let linkText = link.childNodes[3].innerHTML;
 
-  fetch(`/${linkText.toLowerCase().trim()}.html`)
-  .then(function(response) {
-    return response.text();
-  })
-  .then(function(body) {
-     link.classList.add('current-link');
-    document.querySelector('.inpage-load').innerHTML = body;
-  });
+  // fetch(`/${linkText.toLowerCase().trim()}.html`)
+  // .then(function(response) {
+  //   return response.text();
+  // })
+  // .then(function(body) {
+  //    link.classList.add('current-link');
+  //   document.querySelector('.inpage-load').innerHTML = body;
+  // });
 
   let arrayOfElements = Array.from(links);
 
