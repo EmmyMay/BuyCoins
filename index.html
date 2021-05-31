@@ -105,31 +105,26 @@
     </h1>
 
     <div class="cta">
-      <input class="main-input form-control" placeholder="Enter Username" type="text">
+      <input id="username" class=" main-input form-control" placeholder="Enter Username" type="text">
       <button class="go" >Go</button>
     </div>
   </main>
-</body>
 
-</html>
-
-
-<script type="text/javascript">
-  let go = document.querySelector('.go');
-  let formValue = document.querySelector('.main-input').value;
   
-  const clickHandler = (e)=>{
+<script>
+  let go = document.querySelector('.go');
+  let input = document.getElementById('username'); 
+  
+
+  go.addEventListener('click', function(e){
     e.preventDefault();
     console.log("clicked")
-    getUser();
-
-  }
-
-  go.addEventListener('click', clickHandler(e))
+     getUser();
+  } )
 
   const getUser = ()=>{
      let query = {
-    "query($name: String!, $repo_count: Int!)" : `
+    'query ($name: String!, $repo_count: Int!)' : `
         {
   repositoryOwner(login: $name) {
     repositories(first: $repo_count) {
@@ -153,24 +148,27 @@
   }
 
   let body = JSON.stringify(query);
+  console.log(input.value)
+  
   // The Authorization token.
-  let PAT  = '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';
-  fetch('https://api.github.com/graphql',{
+  let PAT  = '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';
 
-    method: 'post',
+    fetch('https://api.github.com/graphql',{
+
+    method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
-      'Authorization': 'bearer ' + PAT
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + PAT
     },
 
     body: body,
 
     variables: {
-      name: formValue,
+      name: input.value,
       repo_count: 20
     }
-  }).then (res => res.json())
-  .then(data => {
+  }).then (async (res)=> {
+    let data = await res.json();
     console.log(data);
   })
 
@@ -183,6 +181,11 @@
 
 
 </script>
+</body>
+
+</html>
+
+
 
 
 <style>
