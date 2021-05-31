@@ -151,7 +151,7 @@
   console.log(input.value)
   
   // The Authorization token.
-  let PAT  = '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';
+  let PAT  = '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';
 
     fetch('https://api.github.com/graphql',{
 
@@ -161,15 +161,36 @@
       'Authorization': 'Bearer ' + PAT
     },
 
-    body: body,
-
-    variables: {
-      name: input.value,
+    body: JSON.stringify({
+      query: `query ($name: String!, $repo_count: Int!) {  repositoryOwner(login: $name) {
+      repositories(first: $repo_count) {
+      nodes {
+        name
+        description
+        stargazerCount
+        forkCount
+        updatedAt
+        languages(first: 1) {
+          nodes {
+            name
+          }
+        }
+      }
+    }
+  }
+}`,
+  variables: {
+      name: input.value.toString(),
       repo_count: 20
     }
+    }),
+
+    
   }).then (async (res)=> {
     let data = await res.json();
     console.log(data);
+    localStorage.setItem('data', JSON.stringify(data));
+
   })
 
 
