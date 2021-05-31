@@ -126,6 +126,11 @@
      let query = {
     'query ($name: String!, $repo_count: Int!)' : `
         {
+      user (login: $name){
+    login
+    name
+    avatarUrl
+  }
   repositoryOwner(login: $name) {
     repositories(first: $repo_count) {
       nodes {
@@ -151,7 +156,7 @@
   console.log(input.value)
   
   // The Authorization token.
-  let PAT  = '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';
+  let PAT  = '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';
 
     fetch('https://api.github.com/graphql',{
 
