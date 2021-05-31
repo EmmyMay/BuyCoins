@@ -110,35 +110,25 @@
     </div>
   </main>
 
-  
-<script>
 
-  window.onload = ()=>{
-    getLoginUrl();
-    return;
-  }
-  let go = document.querySelector('.go');
+  <script>
+    let go = document.querySelector('.go');
   let input = document.getElementById('username'); 
   
 
   go.addEventListener('click', function(e){
     e.preventDefault();
     console.log("clicked")
-    // getLoginUrl();
+   
      getUser();
   } )
 
 
- const getLoginUrl = ()=>{
-
-window.location = `https://github.com/login/oauth/authorize?client_id=Iv1.2d5629f3d3a0cecd&scope=user`
-  
-}
   const getUser = ()=>{
      let query = {
     'query ($name: String!, $repo_count: Int!)' : `
-        {
-      user (login: $name){
+    {
+    user (login: $name){
     login
     name
     avatarUrl
@@ -168,7 +158,7 @@ window.location = `https://github.com/login/oauth/authorize?client_id=Iv1.2d5629
   console.log(input.value)
   
   // The Authorization token.
-  let PAT  = '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';
+  let PAT  = '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';
 
     fetch('https://api.github.com/graphql',{
 
@@ -179,7 +169,15 @@ window.location = `https://github.com/login/oauth/authorize?client_id=Iv1.2d5629
     },
 
     body: JSON.stringify({
-      query: `query ($name: String!, $repo_count: Int!) {  repositoryOwner(login: $name) {
+      query: `query ($name: String!, $repo_count: Int!) { 
+          user (login: $name){
+      login
+      name
+      avatarUrl
+      bio
+  }
+         repositoryOwner(login: $name) {
+    
       repositories(first: $repo_count) {
       nodes {
         name
@@ -207,7 +205,8 @@ window.location = `https://github.com/login/oauth/authorize?client_id=Iv1.2d5629
     let data = await res.json();
     console.log(data);
     localStorage.setItem('data', JSON.stringify(data));
-
+  }).then(()=>{
+   location.href = 'profile.html'
   })
 
 
@@ -218,7 +217,7 @@ window.location = `https://github.com/login/oauth/authorize?client_id=Iv1.2d5629
   
 
 
-</script>
+  </script>
 </body>
 
 </html>

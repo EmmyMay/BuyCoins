@@ -108,7 +108,7 @@
 
     <section class="user_details hide-lg">
       <div class="img_name">
-        <img src="https://randomuser.me/api/portraits/med/women/12.jpg" alt="Profile Image of the user">
+        <img class="avatar" src="" alt="Profile Image of the user">
 
         <div class="user_details_name">
           <h1 class="name title">
@@ -272,9 +272,7 @@
 
           <section class="user_details hide-sm">
             <div class="img_name">
-              <img class="hide-lg" src="https://randomuser.me/api/portraits/med/women/12.jpg" alt="Profile Image of the user">
-
-              <img src="https://randomuser.me/api/portraits/women/12.jpg"
+              <img class="avatar" src=""
              alt="Profile Image of the user">
               <div class="user_details_name">
                 <h1 class="name title">
@@ -313,8 +311,63 @@
 
 
 
-  <script type="text/javascript">
-    let links = document.querySelectorAll('.links > a');
+ <script type="text/javascript">
+  window.onload = ()=>{
+    let data = JSON.parse(localStorage.getItem('data')); 
+    console.log(data);
+
+    let {repo, user } = data.data;
+
+    // The profile image
+    htmlAttribute('.avatar', 'src', user.avatarUrl)
+
+    // The profile name,login,bio
+    htmlInput('.name', user.name)
+    htmlInput('.username', user.login)
+    htmlInput('.user_bio', user.bio)
+  }
+  
+
+    
+
+
+
+
+// The two functions below will be used to get certain elements and fill them
+// with data
+
+  const htmlInput = ( element, data )=>{
+      if (element && data) {
+       let htmlElement = document.querySelectorAll(element); 
+         for (const element of htmlElement) {
+         element.innerHTML = data;
+        }
+       
+      }
+  }
+
+const htmlAttribute = (element, attribute, data)=>{
+         if (element && data) {
+       let htmlElement = document.querySelectorAll(element);
+        for (const element of htmlElement) {
+         element.setAttribute(attribute, data);
+
+
+        }
+        
+       
+    
+      }
+}
+
+
+
+
+
+
+
+  
+  let links = document.querySelectorAll('.links > a');
  
   for (const link of links) {
  link.addEventListener('click', function(event) {
@@ -343,6 +396,8 @@
   }
   link.classList.add('current-link');
   })
+
+
 }
   </script>
 </body>
